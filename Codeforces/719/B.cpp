@@ -45,7 +45,7 @@ int main(){
     int test;
     cin>>test;
     while(test--){
-        string n;
+        int n;
         cin>>n;
         cout<<ordinaryN(n)<<endl;
     }
