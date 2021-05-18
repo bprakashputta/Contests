@@ -11,26 +11,34 @@
 // The only line of each test case contains a 
 // single integer N.
 
-#include<bits/stdc++.h>
-#include<math.h>
+#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
-int main(){
-    // added the two lines below
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); 
+const int MX = 1e5 + 5;
+const int MOD = 1e9 + 7;
+vector<int> ans(MX);
 
-    long int test;
-    cin>>test;
-    while(test--){
-        long int N;
-        long int count=0;
-        cin>>N;
-        for(long int x=0;x<=pow(2,N-1);x++){
-            if((x^(x+1))==((x+2)^(x+3))){
-                count++;
-            }
-        }
-        cout << count % (10000000 + 7) <<endl;
+void preComputation(){
+    ans[1] = 1;
+    for(int i=2; i<MX; i++){
+        ans[i] = (ans[i-1]*2)%MOD;
     }
 }
+
+int main() {
+	// your code goes here
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	
+	preComputation();
+	int test;
+	cin>>test;
+	while(test--){
+	    int n;
+	    cin>>n;
+	    cout<<ans[n]<<"\n";
+	}
+	return 0;
+}
+
