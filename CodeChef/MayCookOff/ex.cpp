@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+
+//I have to write code for optimised approach
 int findPairs(vector<int> arr, int x, int y){
     int count=0, n=arr.size();
     for(int i=0; i<n-1;i++){
